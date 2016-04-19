@@ -10,6 +10,7 @@ namespace Win10WebService
         public HotelDBContext()
             : base("name=HotelDBContext")
         {
+            Configuration.ProxyCreationEnabled = false;
         }
 
         public virtual DbSet<Booking> Bookings { get; set; }
