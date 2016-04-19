@@ -27,10 +27,5 @@ namespace Win10_project
         {
             this.InitializeComponent();
         }
-
-        private void button_Click(object sender, RoutedEventArgs e)
-        {
-            new MessageDialog("an error occurred");
-        }
     }
 }

@@ -13,6 +13,7 @@ namespace Win10_project
 {
     class WebHandler
     {
+        public static List<Guest> Guests { get; set; }
         public static void GetDataFromDB()
         {
             const string serverUrl = "http://localhost:9510";
@@ -33,6 +34,8 @@ namespace Win10_project
                     {
                         var guestlist =
                             guestResponseMessage.Content.ReadAsAsync<List<Guest>>().Result;
+
+                        Guests = guestlist;
                     }
 
                 }
