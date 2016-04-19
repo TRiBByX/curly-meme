@@ -8,6 +8,10 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <ListView x:Name="listView" HorizontalAlignment="Left" Height="700" Margin="10,10,0,0" VerticalAlignment="Top" Width="369"/>
+        <Button x:Name="button" Content="Sync With Database" Margin="384,678,0,10" Click="button_Click"/>
+        <Button x:Name="button_Copy" Content="Add Guest" Margin="384,641,0,47" Click="button_Click" Width="152"/>
+        <Button x:Name="button_Copy1" Content="Delete Guest" Margin="384,604,0,84" Click="button_Click" Width="152"/>
 
     </Grid>
 </Page>
