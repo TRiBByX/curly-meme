@@ -14,16 +14,16 @@
     </Page.DataContext>
 
     <Grid Background="White">
-        <ListView x:Name="listView" HorizontalAlignment="Left" Height="700" VerticalAlignment="Top" Width="369" DataContext="{Binding SingletonViewModel.Instance.ObservableCollection}" Foreground="Black"/>
-        <Button x:Name="SyncButton" Content="Sync With Database" Margin="384,678,0,10" Click="SyncButton_Click">
+        <ListView x:Name="listView" HorizontalAlignment="Left" Height="700" VerticalAlignment="Top" Width="792" Foreground="Black" Margin="10,10,0,0" ItemsSource="{Binding SingletonViewModel.Instance.Guests}"/>
+        <Button x:Name="SyncButton" Content="Sync With Database" Margin="807,678,0,10" Click="SyncButton_Click">
             <Interactivity:Interaction.Behaviors>
                 <Core:EventTriggerBehavior EventName="Click">
-                    <Core:CallMethodAction MethodName="GetAllGuests"/>
+                    <Core:CallMethodAction MethodName="GetAllGuests" TargetObject="{Binding Mode=OneWay}"/>
                 </Core:EventTriggerBehavior>
             </Interactivity:Interaction.Behaviors>
         </Button>
-        <Button x:Name="AddButton" Content="Add Guest" Margin="384,641,0,47" Width="152"/>
-        <Button x:Name="DeleteButton" Content="Delete Guest" Margin="384,604,0,84" Width="152"/>
+        <Button x:Name="AddButton" Content="Add Guest" Margin="807,641,0,47" Width="152"/>
+        <Button x:Name="DeleteButton" Content="Delete Guest" Margin="807,604,0,84" Width="152"/>
 
     </Grid>
 </Page>

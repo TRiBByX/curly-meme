@@ -14,11 +14,12 @@ namespace Win10_project.Model
 {
     public class SingletonViewModel
     {
-        public ObservableCollection<Guest> ObservableCollection { get; set; }
+        public static ObservableCollection<Guest> Guests { get; set; }
 
         private SingletonViewModel()
         {
-            ObservableCollection = new ObservableCollection<Guest>();
+            Guests = new ObservableCollection<Guest>();
+            GetAllGuests();
         }
 
         private static SingletonViewModel instance;
@@ -31,14 +32,13 @@ namespace Win10_project.Model
                 {
                     instance = new SingletonViewModel();
                 }
-                return instance;
+                return instance;    
             }
         }
 
-        public static ObservableCollection<Guest> Guests()
+        public static void GetAllGuests()
         {
-            var i = new ViewModel.ViewModel().GetallGuests();
-            return i;
+            Guests = Facade.GetAllGuests();
         } 
     }
 }

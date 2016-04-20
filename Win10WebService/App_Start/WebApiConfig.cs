@@ -17,6 +17,9 @@ namespace Win10WebService
             config.SuppressDefaultHostAuthentication();
             config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType));
 
+            config.Formatters.JsonFormatter.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+            config.Formatters.Remove(GlobalConfiguration.Configuration.Formatters.XmlFormatter);
+
             // Web API routes
             config.MapHttpAttributeRoutes();
 

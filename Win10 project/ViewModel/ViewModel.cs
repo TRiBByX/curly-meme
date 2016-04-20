@@ -21,12 +21,6 @@ namespace Win10_project.ViewModel
             SingletonViewModel = SingletonViewModel.Instance;
         }
 
-        public ObservableCollection<Guest> GetallGuests()
-        {
-            var i = Facade.Instance.GetAllGuests();
-            return i;
-        } 
-
         #region Notify Property Change Support
         public event PropertyChangedEventHandler PropertyChanged;
 

@@ -17,31 +17,11 @@ namespace Win10_project
 {
     public class Facade
     {
-        public static ObservableCollection<Guest> Guests { get; set; }
+        const string serverUrl = "http://localhost:9510";
 
-        private Facade() { }
-
-        private Facade(ObservableCollection<Guest> guests)
+        public static ObservableCollection<Guest> GetAllGuests()
         {
-            Guests = guests;
-        }
-
-        static readonly Facade _instance = new Facade();
-        public static Facade Instance
-        {
-            get
-            {
-                return _instance;
-            }
-        }
-
-        public ObservableCollection<Guest> GetAllGuests()
-        {
-            const string serverUrl = "http://localhost:9510";
-            HttpClientHandler handler = new HttpClientHandler();
-            handler.UseDefaultCredentials = true;
-
-            using (var client = new HttpClient(handler))
+            using (var client = new HttpClient())
             {
                 client.BaseAddress = new Uri(serverUrl);
                 client.DefaultRequestHeaders.Clear();
@@ -50,7 +30,7 @@ namespace Win10_project
                 try
                 {
                     String guestURL = "api/guests";
-                    HttpResponseMessage guestResponseMessage = client.GetAsync(guestURL).Result;
+                    var guestResponseMessage = client.GetAsync(guestURL).Result;
                     if (guestResponseMessage.IsSuccessStatusCode)
                     {
                         var guestlist =
