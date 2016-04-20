@@ -19,6 +19,16 @@ namespace Win10_project
     {
         const string serverUrl = "http://localhost:9510";
 
+        public static void PostGuest(int guest_no, string name, string address)
+        {
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(serverUrl);
+                client.DefaultRequestHeaders.Clear();
+                var postresponse = client.PostAsJsonAsync("api/guests", new Guest {Guest_No = guest_no, Name = name, Address = address}).Result;
+            }
+        }
+
         public static ObservableCollection<Guest> GetAllGuests()
         {
             using (var client = new HttpClient())

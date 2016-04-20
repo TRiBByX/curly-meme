@@ -15,10 +15,18 @@ namespace Win10_project.ViewModel
     public class ViewModel : INotifyPropertyChanged
     {
         public SingletonViewModel SingletonViewModel { get; private set; }
+        public String Name { get; set; }
+        public int Guest_no { get; set; }
+        public String Address { get; set; }
 
         public ViewModel()
         {
             SingletonViewModel = SingletonViewModel.Instance;
+        }
+
+        public void AddGuest()
+        {
+            SingletonViewModel.AddGuest(Guest_no, Name, Address);
         }
 
         #region Notify Property Change Support

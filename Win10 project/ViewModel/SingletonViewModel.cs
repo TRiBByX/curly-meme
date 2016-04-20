@@ -39,6 +39,11 @@ namespace Win10_project.Model
         public static void GetAllGuests()
         {
             Guests = Facade.GetAllGuests();
-        } 
+        }
+
+        public static void AddGuest(int guest_no, string name, string address)
+        {
+            Facade.PostGuest(guest_no, name, address);
+        }
     }
 }
