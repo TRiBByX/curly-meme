@@ -98,16 +98,18 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Booking.cs" />
-    <Compile Include="Guest.cs" />
-    <Compile Include="Hotel.cs" />
-    <Compile Include="MainPage.xaml.cs">
+    <Compile Include="Model\Booking.cs" />
+    <Compile Include="Model\Guest.cs" />
+    <Compile Include="Model\Hotel.cs" />
+    <Compile Include="ViewModel\SingletonViewModel.cs" />
+    <Compile Include="ViewModel\ViewModel.cs" />
+    <Compile Include="View\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Room.cs" />
-    <Compile Include="WebHandler.cs" />
+    <Compile Include="Model\Room.cs" />
+    <Compile Include="Facade\Facade.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -130,7 +132,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="MainPage.xaml">
+    <Page Include="View\MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

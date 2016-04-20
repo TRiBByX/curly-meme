@@ -15,19 +15,19 @@ using Win10_project.Annotations;
 
 namespace Win10_project
 {
-    class WebHandler : INotifyPropertyChanged
+    public class Facade
     {
         public static ObservableCollection<Guest> Guests { get; set; }
 
-        private WebHandler() { }
+        private Facade() { }
 
-        private WebHandler(ObservableCollection<Guest> guests)
+        private Facade(ObservableCollection<Guest> guests)
         {
             Guests = guests;
         }
 
-        static readonly WebHandler _instance = new WebHandler();
-        public static WebHandler Instance
+        static readonly Facade _instance = new Facade();
+        public static Facade Instance
         {
             get
             {
@@ -35,7 +35,7 @@ namespace Win10_project
             }
         }
 
-        public static void GetDataFromDB()
+        public ObservableCollection<Guest> GetAllGuests()
         {
             const string serverUrl = "http://localhost:9510";
             HttpClientHandler handler = new HttpClientHandler();
@@ -56,7 +56,7 @@ namespace Win10_project
                         var guestlist =
                             guestResponseMessage.Content.ReadAsAsync<ObservableCollection<Guest>>().Result;
 
-                        Guests = guestlist;
+                        return guestlist;
                     }
 
                 }
@@ -64,15 +64,9 @@ namespace Win10_project
                 {
                     new MessageDialog("An error occurred: " + e.Message);
                 }
+
+                return null;
             }
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        [NotifyPropertyChangedInvocator]
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }
