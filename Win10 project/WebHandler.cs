@@ -1,19 +1,40 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.UI.Popups;
 using Win10WebService;
+using Win10_project.Annotations;
 
 namespace Win10_project
 {
-    class WebHandler
+    class WebHandler : INotifyPropertyChanged
     {
-        public static List<Guest> Guests { get; set; }
+        public static ObservableCollection<Guest> Guests { get; set; }
+
+        private WebHandler() { }
+
+        private WebHandler(ObservableCollection<Guest> guests)
+        {
+            Guests = guests;
+        }
+
+        static readonly WebHandler _instance = new WebHandler();
+        public static WebHandler Instance
+        {
+            get
+            {
+                return _instance;
+            }
+        }
+
         public static void GetDataFromDB()
         {
             const string serverUrl = "http://localhost:9510";
@@ -33,7 +54,7 @@ namespace Win10_project
                     if (guestResponseMessage.IsSuccessStatusCode)
                     {
                         var guestlist =
-                            guestResponseMessage.Content.ReadAsAsync<List<Guest>>().Result;
+                            guestResponseMessage.Content.ReadAsAsync<ObservableCollection<Guest>>().Result;
 
                         Guests = guestlist;
                     }
@@ -44,6 +65,14 @@ namespace Win10_project
                     new MessageDialog("An error occurred: " + e.Message);
                 }
             }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        [NotifyPropertyChangedInvocator]
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }
