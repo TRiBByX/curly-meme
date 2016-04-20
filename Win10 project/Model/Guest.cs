@@ -30,7 +30,7 @@ namespace Win10WebService
 
         public override string ToString()
         {
-            return $"{Guest_No}, {Name}, {Address}, {Bookings}";
+            return $"{Guest_No}, {Name}, {Address}";
         }
     }
 }

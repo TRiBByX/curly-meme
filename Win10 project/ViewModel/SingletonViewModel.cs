@@ -45,5 +45,15 @@ namespace Win10_project.Model
         {
             Facade.PostGuest(guest_no, name, address);
         }
+
+        public static void DeleteGuest(Guest guest)
+        {
+            Facade.DeleteGuest(guest);
+        }
+
+        public static void UpdateGuest(Guest guest, string name, string address)
+        {
+            Facade.PutGuest(guest, name, address);   
+        }
     }
 }

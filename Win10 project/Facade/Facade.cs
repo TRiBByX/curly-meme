@@ -29,6 +29,34 @@ namespace Win10_project
             }
         }
 
+        public static void DeleteGuest(Guest guest)
+        {
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(serverUrl);
+                client.DefaultRequestHeaders.Clear();
+                var postresponse = client.DeleteAsync($"api/guests/{guest.Guest_No}").Result;   
+            }
+        }
+
+        public static void PutGuest(Guest guest, string name = null, string address = null)    
+        {
+            if (name != null)
+            {
+                guest.Name = name;
+            }
+            if (address != null)
+            {
+                guest.Address = address;
+            }
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(serverUrl);
+                client.DefaultRequestHeaders.Clear();
+                var postresponse = client.PutAsJsonAsync($"api/guests/{guest.Guest_No}", guest).Result;
+            }
+        }
+
         public static ObservableCollection<Guest> GetAllGuests()
         {
             using (var client = new HttpClient())

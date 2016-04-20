@@ -32,5 +32,10 @@ namespace Win10_project
         private void SyncButton_Click(object sender, RoutedEventArgs e)
         {
         }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
