@@ -37,8 +37,8 @@ namespace Win10_project.Model
 
         public static ObservableCollection<Guest> Guests()
         {
-            var i = new ViewModel.ViewModel
-            return null;
+            var i = new ViewModel.ViewModel().GetallGuests();
+            return i;
         } 
     }
 }

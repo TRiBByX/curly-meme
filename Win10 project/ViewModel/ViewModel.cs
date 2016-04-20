@@ -23,8 +23,8 @@ namespace Win10_project.ViewModel
 
         public ObservableCollection<Guest> GetallGuests()
         {
-            var guestlist = new Facade();
-            return null;
+            var i = Facade.Instance.GetAllGuests();
+            return i;
         } 
 
         #region Notify Property Change Support

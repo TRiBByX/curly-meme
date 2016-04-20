@@ -13,12 +13,12 @@
         <ViewModel:ViewModel/>
     </Page.DataContext>
 
-    <Grid Background="Black">
+    <Grid Background="White">
         <ListView x:Name="listView" HorizontalAlignment="Left" Height="700" VerticalAlignment="Top" Width="369" DataContext="{Binding SingletonViewModel.Instance.ObservableCollection}" Foreground="Black"/>
-        <Button x:Name="SyncButton" Content="Sync With Database" Margin="384,678,0,10">
+        <Button x:Name="SyncButton" Content="Sync With Database" Margin="384,678,0,10" Click="SyncButton_Click">
             <Interactivity:Interaction.Behaviors>
                 <Core:EventTriggerBehavior EventName="Click">
-                    <Core:CallMethodAction MethodName="GenerateObservableCollection"/>
+                    <Core:CallMethodAction MethodName="GetAllGuests"/>
                 </Core:EventTriggerBehavior>
             </Interactivity:Interaction.Behaviors>
         </Button>

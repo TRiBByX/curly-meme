@@ -13,6 +13,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Win10_project.Model;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -26,6 +27,11 @@ namespace Win10_project
         public MainPage()
         {
             this.InitializeComponent();
+        }
+
+        private void SyncButton_Click(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }
