@@ -29,7 +29,7 @@
                 </Core:EventTriggerBehavior>
             </Interactivity:Interaction.Behaviors>
         </Button>
-        <TextBox x:Name="Name" HorizontalAlignment="Right" Margin="0,184,327,0" TextWrapping="Wrap" Text="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"/>
+        <TextBox x:Name="GuestName" HorizontalAlignment="Right" Margin="0,184,327,0" TextWrapping="Wrap" Text="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"/>
         <TextBox x:Name="Address" HorizontalAlignment="Right" Margin="0,277,204,0" TextWrapping="Wrap" Text="{Binding Address, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"/>
         <TextBox x:Name="GuestNo" HorizontalAlignment="Right" Margin="0,0,228,280" TextWrapping="Wrap" Text="{Binding Guest_no, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Bottom"/>
         <Button x:Name="button" Content="Update Guest" HorizontalAlignment="Left" Margin="807,508,0,0" VerticalAlignment="Top" Height="60" Width="152" Click="button_Click">

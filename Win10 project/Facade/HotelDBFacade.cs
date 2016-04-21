@@ -15,17 +15,18 @@ using Win10_project.Annotations;
 
 namespace Win10_project
 {
-    public class Facade
+    public class HotelDBFacade
     {
         const string serverUrl = "http://localhost:9510";
 
-        public static void PostGuest(int guest_no, string name, string address)
+        public static bool PostGuest(int guest_no, string name, string address)
         {
             using (var client = new HttpClient())
             {
                 client.BaseAddress = new Uri(serverUrl);
                 client.DefaultRequestHeaders.Clear();
                 var postresponse = client.PostAsJsonAsync("api/guests", new Guest {Guest_No = guest_no, Name = name, Address = address}).Result;
+                return postresponse.IsSuccessStatusCode;
             }
         }
 

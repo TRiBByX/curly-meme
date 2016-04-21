@@ -238,6 +238,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BookingsController.cs" />
     <Compile Include="Controllers\GuestsController.cs" />
+    <Compile Include="Controllers\Guest_ViewController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HotelsController.cs" />
     <Compile Include="Controllers\RoomsController.cs" />
@@ -246,6 +247,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Guest.cs" />
+    <Compile Include="GuestViewDBContext.cs" />
+    <Compile Include="Guest_View.cs" />
     <Compile Include="Hotel.cs" />
     <Compile Include="HotelDBContext.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
