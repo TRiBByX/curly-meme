@@ -20,7 +20,6 @@ namespace UnitTestProject1
         [TestMethod]
         public void AddToGuestView()
         {
-            bool answer = 
         }
     }
 }

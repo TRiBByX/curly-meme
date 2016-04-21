@@ -98,7 +98,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Facade\GuestViewFacade.cs" />
+    <Compile Include="GuestViewFacade.cs" />
     <Compile Include="Model\Guest_View.cs" />
     <Compile Include="Model\Booking.cs" />
     <Compile Include="Model\Guest.cs" />

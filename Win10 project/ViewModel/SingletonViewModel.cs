@@ -38,22 +38,26 @@ namespace Win10_project.Model
 
         public static void GetAllGuests()
         {
-            Guests = HotelDBFacade.GetAllGuests();
+            //Guests = HotelDBFacade.GetAllGuests();
+            Guests = Facade.GuestViewFacade.GetAllGuests();
         }
 
         public static void AddGuest(int guest_no, string name, string address)
         {
-            HotelDBFacade.PostGuest(guest_no, name, address);
+            //HotelDBFacade.PostGuest(guest_no, name, address);
+            Facade.GuestViewFacade.PostGuest(guest_no, name, address);
         }
 
         public static void DeleteGuest(Guest guest)
         {
-            HotelDBFacade.DeleteGuest(guest);
+            //HotelDBFacade.DeleteGuest(guest);
+            Facade.GuestViewFacade.DeleteGuest(guest);
         }
 
         public static void UpdateGuest(Guest guest, string name, string address)
         {
-            HotelDBFacade.PutGuest(guest, name, address);   
+            //HotelDBFacade.PutGuest(guest, name, address); 
+            Facade.GuestViewFacade.PutGuest(guest, name, address);  
         }
     }
 }
